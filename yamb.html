@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=false;">
+  <link rel="apple-touch-icon" href="dado-6.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>YAMB kocki</title>
+  <style type="text/css">
+    img {
+      height: 80px;
+      width: 80px;
+      margin:0;
+    }
+    body {
+      /*margin: 5%;*/
+      background-color: green;
+     /* border: 3px solid black;
+      border-radius: 15px;
+      box-shadow: 10px 10px 10px black;*/
+      text-align: center;
+      font-size:larger;
+    }
+    button {
+    width:7em;
+    height: 3em;
+    font-size:large;
+   /* position: absolute;
+    top:450px;
+    margin-left:auto;
+    margin-right:auto;
+    left:0;
+    right:0;*/
+    }
+    div {
+    display:inline-block;
+    text-align:center;
+    vertical-align:middle;
+    padding:0;
+    /*margin:3px;*/
+    border:6px solid green;
+    border-radius:10px;
+    }
+    .kliknat {
+    border:6px solid red;
+    border-radius:10px;
+    }
+    table {
+    border: 2px solid white;
+    color: white;
+    width:90%;
+    margin-left:4.5%;
+    margin-top:1em;
+    }
+    th {
+    background-color: gray;
+    color: black;
+    font-size:large;
+    }
+    td {
+    border: 1px solid white;
+    width:14%;
+    padding:0;
+    }
+    input {
+    font-size:large;
+    font-weight:600;
+    margin-top:1em;
+    }
+    td input, th input {
+    width:90%;
+    height:1.5em;
+    margin:0;
+    padding:0;
+    text-align:center;
+    font-size:large;
+    background:transparent;
+    border:none;
+    }
+  </style>
+  <script type="text/javascript"
+    src="jquery.min.js"></script>
+   <script type="text/javascript">
+   $(init);
+   
+   function init () {
+  $("#kopce").click(frli);
+  $("div").click(oznaci);
+  $("input").change(calculate);
+  }
+  
+  var frlanje = 0;
+  function frli () {
+  var x1= Math.floor(Math.random()*(6-1+1))+1;
+   var img1="dado-"+ x1 +".png";
+   var x6= Math.floor(Math.random()*(6-1+1))+1;
+   var img6="dado-"+ x6 +".png";
+   var x2= Math.floor(Math.random()*(6-1+1))+1;
+   var img2="dado-"+ x2 +".png";
+  var x3= Math.floor(Math.random()*(6-1+1))+1;
+   var img3="dado-"+ x3 +".png";
+  var x4= Math.floor(Math.random()*(6-1+1))+1;
+   var img4="dado-"+ x4 +".png";
+var x5= Math.floor(Math.random()*(6-1+1))+1;
+   var img5="dado-"+ x5 +".png";  
+ 
+frlanje = frlanje +1;
+  if (frlanje > 3) { $("div").slideUp(600).removeClass("kliknat");
+  frlanje = 0;
+  }
+  $("#broj").html("Bacili ste " + frlanje + " put");
+  $("div").show();  
+  $("#k1:not(.kliknat)").html("<img src=" + img1 + " />");
+  $("#k2:not(.kliknat) ").html("<img src=" + img2 + " />");
+  $("#k3:not(.kliknat) ").html("<img src=" + img3 + " />");
+  $("#k4:not(.kliknat) ").html("<img src=" + img4 + " />");
+  $("#k5:not(.kliknat) ").html("<img src=" + img5 + " />");
+  $("#k6:not(.kliknat) ").html("<img src=" + img6 + " />");
+ } 
+ 
+function calculate() {
+ var sumA =0;
+ for (i=1; i<=6; i++) {
+  sumA += 1*$("#" + i + "a").val(); }
+ if (sumA < 51) {
+   $("#sumA").val(sumA);
+   } else {
+   $("#sumA").val(sumA + 30); }
+ 
+ var sumB =0;
+ for (i=1; i<=6; i++) {
+  sumB += 1*$("#" + i + "b").val(); }
+ if (sumB < 51) {
+   $("#sumB").val(sumB);
+   } else {
+   $("#sumB").val(sumB + 30); }
+ 
+ var sumC =0;
+ for (i=1; i<=6; i++) {
+  sumC += 1*$("#" + i + "c").val(); }
+  if (sumC < 51) {
+   $("#sumC").val(sumC);
+   } else {
+   $("#sumC").val(sumC + 30); }
+ 
+ var sumD =0;
+ for (i=1; i<=6; i++) {
+  sumD += 1*$("#" + i + "d").val(); }
+  if (sumD < 51) {
+   $("#sumD").val(sumD);
+   } else {
+   $("#sumD").val(sumD + 30); }
+ 
+ var sumE =0;
+ for (i=1; i<=6; i++) {
+  sumE += 1*$("#" + i + "e").val(); }
+  if (sumE < 51) {
+   $("#sumE").val(sumE);
+   } else {
+   $("#sumE").val(sumE + 30); }
+  
+ var sumF =0;
+ for (i=1; i<=6; i++) {
+  sumF += 1*$("#" + i + "f").val(); }
+  if (sumF < 51) {
+   $("#sumF").val(sumF);
+   } else {
+   $("#sumF").val(sumF + 30); }
+  
+  $("#MsumA").val(1*(($("#maxA").val() - $("#minA").val()) * $("#1a").val()));
+  
+  $("#MsumB").val(1*(($("#maxB").val() - $("#minB").val()) * $("#1b").val()));
+ 
+ $("#MsumC").val(1*(($("#maxC").val() - $("#minC").val()) * $("#1c").val()));
+ 
+ $("#MsumD").val(1*(($("#maxD").val() - $("#minD").val()) * $("#1d").val()));
+ 
+ $("#MsumE").val(1*(($("#maxE").val() - $("#minE").val()) * $("#1e").val()));
+ 
+ $("#MsumF").val(1*(($("#maxF").val() - $("#minF").val()) * $("#1f").val()));
+ 
+  var DsumA =0;
+ for (i=1; i<=5; i++) {
+  DsumA += 1*$("#" + i + "ka").val(); }
+ $("#DsumA").val(DsumA);
+ 
+ var DsumB =0;
+ for (i=1; i<=5; i++) {
+  DsumB += 1*$("#" + i + "kb").val(); }
+ $("#DsumB").val(DsumB);
+ 
+ var DsumC =0;
+ for (i=1; i<=5; i++) {
+  DsumC += 1*$("#" + i + "kc").val(); }
+ $("#DsumC").val(DsumC);
+ 
+ var DsumD =0;
+ for (i=1; i<=5; i++) {
+  DsumD += 1*$("#" + i + "kd").val(); }
+ $("#DsumD").val(DsumD);
+ 
+ var DsumE =0;
+ for (i=1; i<=5; i++) {
+  DsumE += 1*$("#" + i + "ke").val(); }
+ $("#DsumE").val(DsumE);
+ 
+ var DsumF =0;
+ for (i=1; i<=5; i++) {
+  DsumF += 1*$("#" + i + "kf").val(); }
+ $("#DsumF").val(DsumF);
+ 
+ $("#TsumA").val(1 * $("#sumA").val() + 1 * $("#sumB").val() + 1 * $("#sumC").val() + 1 * $("#sumD").val() + 1 * $("#sumE").val() + 1 * $("#sumF").val() + 1 * $("#MsumA").val() + 1 * $("#MsumB").val() + 1 * $("#MsumC").val() 
+ + 1 * $("#MsumD").val() + 1 * $("#MsumE").val() + 1 * $("#MsumF").val() + 1 * $("#DsumA").val() + 1 * $("#DsumB").val() + 1 * $("#DsumC").val() + 1 * $("#DsumD").val() + 1 * $("#DsumE").val() + 1 * $("#DsumF").val());
+ 
+}
+
+ function oznaci () {
+   $(this).toggleClass("kliknat") 
+}
+   </script> 
+    
+</head>
+<body>
+<p id="broj"></p>
+<div id="k1"></div>
+<div id="k2"></div>
+<div id="k3"></div><br>
+<div id="k4"></div>
+<div id="k5"></div>
+<div id="k6"></div><br>
+
+<button type="button"
+  id="kopce">Klikni me</button>
+  <br>
+  <input type="text" id="ime" />
+  <table>
+    <tr>
+      <th>Y</th>
+      <th>&#8659</th>
+      <th>&#8661</th>
+      <th>&#8657</th>
+      <th>N</th>
+      <th>R</th>
+      <th>D</th>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td><input type ="number" id ="1a" min="0" max="6" /></td>
+      <td><input type ="number" id ="1b" min="0" max="6" /></td>
+      <td><input type ="number" id ="1c" min="0" max="6" /></td>
+      <td><input type ="number" id ="1d" min="0" max="6" /></td>
+      <td><input type ="number" id ="1e" min="0" max="6" /></td>
+      <td><input type ="number" id ="1f" min="0" max="6" /></td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td><input type ="number" id ="2a" min="0" max="12" /></td>
+      <td><input type ="number" id ="2b" min="0" max="12" /></td>
+      <td><input type ="number" id ="2c" min="0" max="12" /></td>
+      <td><input type ="number" id ="2d" min="0" max="12" /></td>
+      <td><input type ="number" id ="2e" min="0" max="12" /></td>
+      <td><input type ="number" id ="2f" min="0" max="12" /></td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td><input type ="number" id ="3a" min="0" max="18" /></td>
+      <td><input type ="number" id ="3b" min="0" max="18" /></td>
+      <td><input type ="number" id ="3c" min="0" max="18" /></td>
+      <td><input type ="number" id ="3d" min="0" max="18" /></td>
+      <td><input type ="number" id ="3e" min="0" max="18" /></td>
+      <td><input type ="number" id ="3f" min="0" max="18" /></td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td><input type ="number" id ="4a" min="0" max="24" /></td>
+      <td><input type ="number" id ="4b" min="0" max="24" /></td>
+      <td><input type ="number" id ="4c" min="0" max="24" /></td>
+      <td><input type ="number" id ="4d" min="0" max="24" /></td>
+      <td><input type ="number" id ="4e" min="0" max="24" /></td>
+      <td><input type ="number" id ="4f" min="0" max="24" /></td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td><input type ="number" id ="5a" min="0" max="30" /></td>
+      <td><input type ="number" id ="5b" min="0" max="30" /></td>
+      <td><input type ="number" id ="5c" min="0" max="30" /></td>
+      <td><input type ="number" id ="5d" min="0" max="30" /></td>
+      <td><input type ="number" id ="5e" min="0" max="30" /></td>
+      <td><input type ="number" id ="5f" min="0" max="30" /></td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td><input type ="number" id ="6a" min="0" max="36" /></td>
+      <td><input type ="number" id ="6b" min="0" max="36" /></td>
+      <td><input type ="number" id ="6c" min="0" max="36" /></td>
+      <td><input type ="number" id ="6d" min="0" max="36" /></td>
+      <td><input type ="number" id ="6e" min="0" max="36" /></td>
+      <td><input type ="number" id ="6f" min="0" max="36" /></td>
+    </tr>
+    <tr>
+      <th>Zbir</th>
+      <th><input type ="number" id ="sumA" min="0" max="180" readonly /></th>
+      <th><input type ="number" id ="sumB" min="0" max="180" readonly /> </th>
+      <th><input type ="number" id ="sumC" min="0" max="180" readonly /></th>
+      <th><input type ="number" id ="sumD" min="0" max="180" readonly /></th>
+      <th><input type ="number" id ="sumE" min="0" max="180" readonly /></th>
+      <th><input type ="number" id ="sumF" min="0" max="180" readonly /></th>
+    </tr>
+    <tr>
+      <th>MAX</th>
+      <td><input type ="number" id ="maxA" min="0" max="30" /></td>
+      <td><input type ="number" id ="maxB" min="0" max="30" /></td>
+      <td><input type ="number" id ="maxC" min="0" max="30" /></td>
+      <td><input type ="number" id ="maxD" min="0" max="30" /></td>
+      <td><input type ="number" id ="maxE" min="0" max="30" /></td>
+      <td><input type ="number" id ="maxF" min="0" max="30" /></td>
+    </tr>
+    <tr>
+      <th>MIN</th>
+      <td><input type ="number" id ="minA" min="0" max="30" /></td>
+      <td><input type ="number" id ="minB" min="0" max="30" /></td>
+      <td><input type ="number" id ="minC" min="0" max="30" /></td>
+      <td><input type ="number" id ="minD" min="0" max="30" /></td>
+      <td><input type ="number" id ="minE" min="0" max="30" /></td>
+      <td><input type ="number" id ="minF" min="0" max="30" /></td>
+    </tr>
+    <tr>
+      <th>Zbir</th>
+      <th><input type ="number" id ="MsumA" min="0" max="180" readonly /></th>
+      <th><input type ="number" id ="MsumB" min="0" max="180" readonly /></th>
+      <th><input type ="number" id ="MsumC" min="0" max="180" readonly /></th>
+      <th> <input type ="number" id ="MsumD" min="0" max="180" readonly /></th>
+      <th> <input type ="number" id ="MsumE" min="0" max="180" readonly /></th>
+      <th> <input type ="number" id ="MsumF" min="0" max="180" readonly /></th>
+    </tr>
+    <tr>
+      <th>Kenta</th>
+      <td><input type ="number" id ="1ka" min="0" max="60" /></td>
+      <td><input type ="number" id ="1kb" min="0" max="60" /> </td>
+      <td><input type ="number" id ="1kc" min="0" max="60" /></td>
+      <td><input type ="number" id ="1kd" min="0" max="60" /></td>
+      <td><input type ="number" id ="1ke" min="0" max="60" /></td>
+      <td><input type ="number" id ="1kf" min="0" max="60" /></td>
+    </tr>
+    <tr>
+      <th>Triling</th>
+      <td><input type ="number" id ="2ka" min="0" max="38" /></td>
+      <td><input type ="number" id ="2kb" min="0" max="38" /></td>
+      <td><input type ="number" id ="2kc" min="0" max="38" /></td>
+      <td><input type ="number" id ="2kd" min="0" max="38" /> </td>
+      <td><input type ="number" id ="2ke" min="0" max="38" /></td>
+      <td><input type ="number" id ="2kf" min="0" max="38" /></td>
+    </tr>
+    <tr>
+      <th>Full</th>
+      <td><input type ="number" id ="3ka" min="0" max="58" /></td>
+      <td><input type ="number" id ="3kb" min="0" max="58" /> </td>
+      <td><input type ="number" id ="3kc" min="0" max="58" /> </td>
+      <td><input type ="number" id ="3kd" min="0" max="58" /></td>
+      <td><input type ="number" id ="3ke" min="0" max="58" /></td>
+      <td><input type ="number" id ="3kf" min="0" max="58" /></td>
+    </tr>
+    <tr>
+      <th>Karo</th>
+      <td><input type ="number" id ="4ka" min="0" max="64" /></td>
+      <td><input type ="number" id ="4kb" min="0" max="64" /></td>
+      <td><input type ="number" id ="4kc" min="0" max="64" /></td>
+      <td><input type ="number" id ="4kd" min="0" max="64" /></td>
+      <td><input type ="number" id ="4ke" min="0" max="64" /></td>
+      <td><input type ="number" id ="4kf" min="0" max="64" /></td>
+    </tr>
+    <tr>
+      <th>Yamb</th>
+      <td><input type ="number" id ="5ka" min="0" max="110" /></td>
+      <td><input type ="number" id ="5kb" min="0" max="110" /></td>
+      <td><input type ="number" id ="5kc" min="0" max="110" /></td>
+      <td><input type ="number" id ="5kd" min="0" max="110" /></td>
+      <td><input type ="number" id ="5ke" min="0" max="110" /></td>
+      <td><input type ="number" id ="5kf" min="0" max="110" /></td>
+    </tr>
+    <tr>
+      <th>Zbir</th>
+      <th><input type ="number" id ="DsumA" min="0" max="500" readonly /></th>
+      <th><input type ="number" id ="DsumB" min="0" max="500" readonly /></th>
+      <th><input type ="number" id ="DsumC" min="0" max="500" readonly /></th>
+      <th><input type ="number" id ="DsumD" min="0" max="500" readonly /></th>
+      <th><input type ="number" id ="DsumE" min="0" max="500" readonly /></th>
+      <th><input type ="number" id ="DsumF" min="0" max="500" readonly /></th>
+    </tr>
+    <tr>
+      <th>TOTAL</th>
+      <th colspan="6"><input type ="number" id ="TsumA" min="0" max="3000" style="font-size:x-large; color: white;" readonly /></th>
+      <!--th><input type ="number" id ="TsumB" min="0" max="1000" /></th>
+      <th><input type ="number" id ="TsumC" min="0" max="1000" /></th>
+      <th><input type ="number" id ="TsumD" min="0" max="1000" /> </th>
+      <th><input type ="number" id ="TsumE" min="0" max="1000" /></th>
+      <th><input type ="number" id ="TsumF" min="0" max="1000" /></th-->
+    </tr>
+  <table>
+      
+</body>
+</html>
